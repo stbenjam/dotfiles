@@ -1,19 +1,28 @@
-"""""" Bundles
+"""""" Plugins
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
 
-" let Vundle manage Vundle, required
-Bundle 'gmarik/Vundle.vim'
-Bundle 'luochen1990/rainbow'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-rails'
+" Rainbow brackets/braces
+Plug 'luochen1990/rainbow'
 
-call vundle#end()
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" Lots of languages
+Plug 'sheerun/vim-polyglot'
+
+" Git support
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-rails'
+
+Plug 'ervandew/supertab'
+
+
+call plug#end()
 
 filetype plugin indent on
 set laststatus=2
