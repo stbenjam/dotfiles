@@ -6,19 +6,22 @@ call plug#begin()
 
 " Rainbow brackets/braces
 Plug 'luochen1990/rainbow'
-
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'vim-airline/vim-airline'
 
 " Lots of languages
 Plug 'sheerun/vim-polyglot'
+Plug 'scrooloose/syntastic'
 
 " Git support
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-Plug 'scrooloose/syntastic'
+" Ruby stuff
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-endwise'
 
+" Tab completion
 Plug 'ervandew/supertab'
 
 
@@ -29,6 +32,21 @@ set laststatus=2
 let g:Powerline_symbols = "fancy"
 set t_co=256
 let g:rainbow_active = 1
+
+
+"" Window stuff
+
+" control + vim direction key to navigate windows
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-H> <C-W>h
+noremap <C-L> <C-W>l
+
+" control + arrow key to navigate windows
+noremap <C-Down> <C-W>j
+noremap <C-Up> <C-W>k
+noremap <C-Left> <C-W>h
+noremap <C-Right> <C-W>l
 
 " Misc
 let mapleader = ","
@@ -56,23 +74,3 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 au BufRead,BufNewFile *.pp        set filetype=puppet
-
-" SELECTA
-" Run a given vim command on the results of fuzzy selecting from a given shell
-" command. See usage below.
-function! SelectaCommand(choice_command, selecta_args, vim_command)
-  try
-    silent let selection = system(a:choice_command . " | selecta " . a:selecta_args)
-  catch /Vim:Interrupt/
-   " Swallow the ^C so that the redraw below happens; otherwise there will be
-   " leftovers from selecta on the screen
-    redraw!
-     return
-   endtry
-   redraw!
-   exec a:vim_command . " " . selection
-endfunction
-
-" Find all files in all non-dot directories starting in the working directory.
-" Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
