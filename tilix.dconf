@@ -2,13 +2,13 @@
 list=['2b7c4080-0ddd-46c5-8f23-563fd3ba789d']
 
 [profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
-foreground-color='#EFEFEF'
+foreground-color='#D9E6F2'
 visible-name='Default'
 login-shell=true
-palette=['#000000', '#CC0000', '#4D9A05', '#C3A000', '#3464A3', '#754F7B', '#05979A', '#D3D6CF', '#545652', '#EF2828', '#89E234', '#FBE84F', '#729ECF', '#AC7EA8', '#34E2E2', '#EDEDEB']
-badge-color-set=true
+palette=['#000000', '#C37372', '#72C373', '#C2C372', '#7372C3', '#C372C2', '#72C2C3', '#D9D9D9', '#323232', '#DBAAAA', '#AADBAA', '#DADBAA', '#AAAADB', '#DBAADA', '#AADADB', '#FFFFFF']
+badge-color-set=false
 cursor-colors-set=false
 highlight-colors-set=false
 use-theme-colors=false
 bold-color-set=false
-background-color='#303030'
+background-color='#29262F'
