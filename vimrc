@@ -5,6 +5,7 @@ filetype off
 call plug#begin()
 
 " Rainbow brackets/braces
+Plug 'junegunn/fzf.vim'
 Plug 'luochen1990/rainbow'
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'vim-airline/vim-airline'
