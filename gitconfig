@@ -1,6 +1,9 @@
 [user]
-  email = stbenjam@redhat.com
+  email = stephen@redhat.com
   name  = Stephen Benjamin
+  signingkey = EFE3B2983FB2C743
 [color]
   ui = true
   ui = true
+[commit]
+  gpgsign = 1

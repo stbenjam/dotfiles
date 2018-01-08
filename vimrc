@@ -59,6 +59,8 @@ set expandtab
 set autoindent
 set visualbell
 set numberwidth=1
+set number
+set mouse=a
 autocmd FileType ruby setl sw=2 sts=2 et
 autocmd FileType ruby setl sw=2 sts=2 et
 colorscheme torte
