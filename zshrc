@@ -1,7 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 DISABLE_AUTO_UPDATE="true"
-plugins=(git rails rake)
+plugins=(git rails rake gpg-agent)
 source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:$HOME/.local/bin:$HOME/bin:$HOME/.rvm/bin"
