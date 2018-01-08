@@ -18,6 +18,7 @@ alias -g V='|vim'
 
 alias pks=". ~/.zshrc"
 alias ws="python -m SimpleHTTPServer"
+alias gpg="gpg2"
 
 # ctags for ruby project
 alias rtags="ctags -R --languages=ruby --exclude=.git --exclude=log ."
