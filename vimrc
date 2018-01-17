@@ -26,6 +26,8 @@ Plug 'tpope/vim-endwise'
 Plug 'ervandew/supertab'
 
 
+Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
 filetype plugin indent on

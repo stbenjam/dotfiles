@@ -11,4 +11,6 @@ cursor-colors-set=false
 highlight-colors-set=false
 use-theme-colors=false
 bold-color-set=false
+terminal-bell='icon'
+allow-bold=false
 background-color='#29262F'
