@@ -1,4 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
+export GIT=/bin/git
 
 DISABLE_AUTO_UPDATE="true"
 plugins=(git rails rake gpg-agent)
@@ -30,6 +31,23 @@ function chpwd() {
 
 function dsh() {
   sed -i ${1}d ~/.ssh/known_hosts
+}
+
+# cd after git clone
+function git() {
+   local tmp=$(mktemp)
+   local repo_dir
+
+   if [ "$1" = clone ]
+   then
+     $GIT "$@" --progress 2>&1 | tee $tmp
+     repo_dir=$(awk -F\' '/Cloning into/ {print $2}' $tmp)
+     rm $tmp
+     echo "Changing to directory $repo_dir"
+     cd "$repo_dir"
+   else
+     $GIT "$@"
+   fi
 }
 
 export VAGRANT_DEFAULT_PROVIDER=libvirt
