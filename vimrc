@@ -65,6 +65,15 @@ set number
 set mouse=a
 autocmd FileType ruby setl sw=2 sts=2 et
 autocmd FileType ruby setl sw=2 sts=2 et
+
+augroup gitsetup
+  autocmd!
+
+  " Only set these commands up for git commits
+   autocmd FileType gitcommit
+   autocmd CursorMoved,CursorMovedI * let &l:textwidth = line('.') == 1 ? 50 : 72
+augroup end
+
 colorscheme torte
 syntax enable
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
