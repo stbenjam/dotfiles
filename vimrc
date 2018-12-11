@@ -5,10 +5,10 @@ filetype off
 call plug#begin()
 
 " Rainbow brackets/braces
-Plug 'junegunn/fzf.vim'
 Plug 'luochen1990/rainbow'
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'vim-airline/vim-airline'
+Plug 'jiangmiao/auto-pairs'
 
 " Lots of languages
 Plug 'sheerun/vim-polyglot'
@@ -25,8 +25,9 @@ Plug 'tpope/vim-endwise'
 " Tab completion
 Plug 'ervandew/supertab'
 
-
-Plug 'jiangmiao/auto-pairs'
+" YAML
+Plug 'stephpy/vim-yaml'
+Plug 'pearofducks/ansible-vim'
 
 call plug#end()
 

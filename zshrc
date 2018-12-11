@@ -2,8 +2,9 @@ export ZSH=$HOME/.oh-my-zsh
 export GIT=/bin/git
 
 DISABLE_AUTO_UPDATE="true"
-plugins=(git rails rake gpg-agent)
+plugins=(git rails rake gpg-agent zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white'
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:$HOME/.local/bin:$HOME/bin:$HOME/.rvm/bin"
 export LANG=en_US.UTF-8
