@@ -54,8 +54,8 @@ noremap <C-Right> <C-W>l
 
 " Misc
 let mapleader = ","
-set ts=4
-set sw=4
+set ts=2
+set sw=2
 set incsearch
 set ruler
 set expandtab
@@ -66,6 +66,7 @@ set number
 set mouse=a
 autocmd FileType ruby setl sw=2 sts=2 et
 autocmd FileType ruby setl sw=2 sts=2 et
+autocmd FileType yaml set cursorcolumn
 
 augroup gitsetup
   autocmd!
