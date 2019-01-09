@@ -6,7 +6,8 @@ plugins=(git rails rake gpg-agent zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white'
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:$HOME/.local/bin:$HOME/bin:$HOME/.rvm/bin"
+export GOPATH=$HOME/go
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:$HOME/.local/bin:$HOME/bin:$HOME/.rvm/bin:$GOPATH/bin"
 export LANG=en_US.UTF-8
 export EDITOR='vim'
 export GPG_TTY=$(tty)
