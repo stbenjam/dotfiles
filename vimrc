@@ -29,6 +29,9 @@ Plug 'ervandew/supertab'
 Plug 'stephpy/vim-yaml'
 Plug 'pearofducks/ansible-vim'
 
+" Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 call plug#end()
 
 filetype plugin indent on
@@ -67,6 +70,7 @@ set mouse=a
 autocmd FileType ruby setl sw=2 sts=2 et
 autocmd FileType ruby setl sw=2 sts=2 et
 autocmd FileType yaml set cursorcolumn
+autocmd BufWritePre *.go GoFmt
 
 augroup gitsetup
   autocmd!
