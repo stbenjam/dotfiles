@@ -1,4 +1,5 @@
 DOTFILES=gitconfig \
+		 gitignore
 		 screenrc \
 		 vimrc \
 		 zshrc

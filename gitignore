@@ -1,0 +1,7 @@
+# Vim Stuff
+*.swp
+*.swo
+*~
+
+# IDE-related files
+.idea/
