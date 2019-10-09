@@ -61,5 +61,6 @@ if [ -f `which powerline-daemon` ]; then
   powerline-daemon -q
   POWERLINE_BASH_CONTINUATION=1
   POWERLINE_BASH_SELECT=1
-  . /usr/share/powerline/zsh/powerline.zsh
+  [ -f /usr/share/powerline/zsh/powerline.zsh ] && source /usr/share/powerline/zsh/powerline.zsh
+  [ -f $HOME/.local/lib/python*/site-packages/powerline/bindings/zsh/powerline.zsh ] && source $HOME/.local/lib/python*/site-packages/powerline/bindings/zsh/powerline.zsh
 fi

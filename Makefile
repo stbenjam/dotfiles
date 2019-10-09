@@ -13,7 +13,7 @@ PACKAGES=vim-enhanced \
 
 GCC_PACKAGES=gcc
 
-all: epel packages gcc go dotfiles
+all: epel packages gcc go ohmyzsh dotfiles
 default: all
 
 dotfiles:
@@ -34,6 +34,9 @@ gcc:
 
 go:
 	./scripts/golang.sh
+
+ohmyzsh:
+	[ -d $(HOME)/.oh-my-zsh ] || curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
 clean:
 	@$(foreach dotfile, $(DOTFILES), \
