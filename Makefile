@@ -1,19 +1,43 @@
-DOTFILES=gitconfig \
-		 gitignore
-		 screenrc \
-		 vimrc \
-		 zshrc
+SHELL := /bin/bash
 
-all:
+DOTFILES=gitconfig \
+				 gitignore \
+				 screenrc \
+				 vimrc \
+				 zshrc
+
+PACKAGES=vim-enhanced \
+				 tmux \
+				 zsh \
+				 git \
+
+GCC_PACKAGES=gcc
+
+all: epel packages gcc go dotfiles
+default: all
+
+dotfiles:
 	@$(foreach dotfile, $(DOTFILES), \
 		[ -f ~/.$(dotfile) ] || ln -s $(PWD)/$(dotfile) ~/.$(dotfile);)
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	vim +PlugUpdate +qa
-	dconf load /com/gexperts/Tilix/ < tilix.dconf
+	(which dconf 2>&1 && dconf load /com/gexperts/Tilix/ < tilix.dconf) > /dev/null || true
+
+packages:
+	sudo yum install -y $(PACKAGES)
+
+epel:
+	./scripts/epel.sh
+
+gcc:
+	sudo yum install -y $(GCC_PACKAGES)
+
+go:
+	./scripts/golang.sh
 
 clean:
 	@$(foreach dotfile, $(DOTFILES), \
 		[ -f ~/.$(dotfile) ] && rm -f ~/.$(dotfile);)
 	rm -rf ~/.vim
 
-.PHONY: all
+.PHONY: all dotfiles packages epel gcc go

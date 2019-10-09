@@ -1,6 +1,0 @@
-- src: https://github.com/stbenjam/ansible-role-stephen
-  version: master
-  name: stephen
-- src: https://github.com/stbenjam/ansible-role-docker
-  version: fedora
-  name: geerlingguy.docker
