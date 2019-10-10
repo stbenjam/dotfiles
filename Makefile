@@ -38,6 +38,12 @@ go:
 ohmyzsh:
 	[ -d $(HOME)/.oh-my-zsh ] || curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
+sshkey:
+	[ -d $(HOME)/.ssh ] || mkdir -p $(HOME)/.ssh
+	chmod 700 $(HOME)/.ssh
+	curl -sSL https://github.com/stbenjam.keys > $(HOME)/.ssh/authorized_keys
+	chmod 600 $(HOME)/.ssh/authorized_keys
+
 clean:
 	@$(foreach dotfile, $(DOTFILES), \
 		[ -f ~/.$(dotfile) ] && rm -f ~/.$(dotfile);)
