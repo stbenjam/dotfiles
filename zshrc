@@ -1,6 +1,8 @@
 export ZSH=$HOME/.oh-my-zsh
 export GIT=/bin/git
 
+setopt +o nomatch
+
 DISABLE_AUTO_UPDATE="true"
 plugins=(git rails rake gpg-agent zsh-autosuggestions zsh-syntax-highlighting golang)
 source $ZSH/oh-my-zsh.sh
@@ -42,7 +44,8 @@ function git() {
 
    if [ "$1" = clone ]
    then
-     $GIT "$@" --progress 2>&1 | tee $tmp
+     shift 1
+     $GIT clone-fork "$@" 2>&1 | tee $tmp
      repo_dir=$(awk -F\' '/Cloning into/ {print $2}' $tmp)
      rm $tmp
      echo "Changing to directory $repo_dir"

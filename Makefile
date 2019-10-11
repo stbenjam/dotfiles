@@ -13,7 +13,7 @@ PACKAGES=vim-enhanced \
 
 GCC_PACKAGES=gcc
 
-all: epel packages gcc go ohmyzsh dotfiles
+all: epel packages gcc go git ohmyzsh dotfiles
 default: all
 
 dotfiles:
@@ -31,6 +31,9 @@ epel:
 
 gcc:
 	sudo yum install -y $(GCC_PACKAGES)
+
+git:
+	go get -u github.com/stbenjam/git-clone-fork
 
 go:
 	./scripts/golang.sh
