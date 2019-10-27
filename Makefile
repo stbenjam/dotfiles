@@ -2,6 +2,7 @@ SHELL := /bin/bash
 
 DOTFILES=gitconfig \
 				 gitignore \
+				 profile \
 				 screenrc \
 				 vimrc \
 				 zshrc
@@ -19,8 +20,10 @@ default: all
 dotfiles:
 	@$(foreach dotfile, $(DOTFILES), \
 		[ -f ~/.$(dotfile) ] || ln -s $(PWD)/$(dotfile) ~/.$(dotfile);)
+	mkdir -p ~/.config/i3/
+	ln -s $(PWD)/i3-config ~/.config/i3/config || true
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	vim +PlugUpdate +qa
+	#vim +PlugUpdate +qa
 	(which dconf 2>&1 && dconf load /com/gexperts/Tilix/ < tilix.dconf) > /dev/null || true
 
 packages:
