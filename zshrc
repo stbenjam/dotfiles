@@ -14,6 +14,9 @@ export LANG=en_US.UTF-8
 export EDITOR='vim'
 export GPG_TTY=$(tty)
 
+# don't pollute cwd when extracting
+export TAR_OPTIONS="--one-top-level"
+
 # some helpful aliases
 alias grep="grep --color=auto"
 alias -g G='|grep'
