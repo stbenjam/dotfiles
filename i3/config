@@ -1,6 +1,8 @@
 set $mod Mod4
 
-font pango:DejaVu Sans Mono 8
+focus_follows_mouse no
+
+font pango:Liberation Mono 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -12,19 +14,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id "rofi -combi-modi window,drun -show combi -modi combi -theme Indego"
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-#bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
+# Cursor keys to change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -53,7 +45,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -139,19 +131,18 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-
-
 # Start-up apps
-exec --no-startup-id ~/.config/xrandr.sh
+exec --no-startup-id ~/.config/i3/xrandr.sh
+exec --no-startup-id xss-lock -- ~/.config/i3/lock.sh
+exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet --sm-disable
 exec --no-startup-id blueman-applet
 exec --no-startup-id volumeicon
-exec --no-startup-id dropbox start
-exec --no-startup-id dunst
 exec --no-startup-id compton
+exec --no-startup-id dunst
 
 # Lock screen
-bindsym $mod+l ~/.config/i3lock.sh
+bindsym $mod+l exec ~/.config/i3/lock.sh
 
 bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
@@ -160,13 +151,14 @@ bindsym $mod+Tab workspace back_and_forth
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
+bindsym $mod+equal [class="Firefox"] scratchpad show
 
 bindsym Print exec gnome-screenshot -i
 
 bar {
-	font pango:Inconsolata 10
+	font pango:DejaVu Sans Mono 13
 	position top
-	status_command ~/.i3/bumblebee-status/bumblebee-status -m weather xrandr nic cpu memory date time pasink pasource bluetooth battery -p root.path=/ time.format="%H:%M CW %V" nic.format="{intf} {state}" nic.exclude="lo,virbr,docker,vboxnet,enp" battery.device="BAT0" weather.unit="imperial" date.format="%a, %b %d %Y" -t solarized-powerline
+	status_command ~/.i3/bumblebee-status/bumblebee-status -m weather xrandr nic cpu memory date time pasink pasource bluetooth battery -p root.path=/ time.format="%H:%M CW %V" nic.format="{intf} {state}" nic.exclude="ip,cni,lo,virbr,docker,vboxnet,enp,tun,cni" battery.device="BAT0,BAT1" weather.unit="imperial" date.format="%a, %b %d %Y" -t iceberg-rainbow
   colors {
     separator #dc322f
     background #333333
@@ -178,11 +170,11 @@ bar {
   }
 }
 
-client.focused #000000 #000000 #FFFFFF #000000
 client.focused_inactive #333333 #333333 #FFFFFF #000000
-client.unfocused #333333 #333333 #FFFFFF #333333
+client.unfocused #cccccc #cccccc #000000 #333333
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f
 
 
 for_window [instance="blueman-manager" class="Blueman-manager"] floating enable
-
+for_window [class="Gnome-calculator"] floating enable
+for_window [class="Virt-manager"] floating enable
