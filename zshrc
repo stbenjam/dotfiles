@@ -13,6 +13,8 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:$HOME/.local
 export LANG=en_US.UTF-8
 export EDITOR='vim'
 export GPG_TTY=$(tty)
+export CONTAINER_ENGINE=podman
+export VAGRANT_DEFAULT_PROVIDER=libvirt
 
 # don't pollute cwd when extracting
 export TAR_OPTIONS="--one-top-level"
@@ -25,11 +27,7 @@ alias -g T='|tail'
 alias -g V='|vim'
 
 alias pks=". ~/.zshrc"
-alias ws="python -m SimpleHTTPServer"
 alias gpg="gpg2"
-
-# ctags for ruby project
-alias rtags="ctags -R --languages=ruby --exclude=.git --exclude=log ."
 
 function chpwd() {
   emulate -LR zsh
@@ -57,11 +55,6 @@ function git() {
      $GIT "$@"
    fi
 }
-
-export VAGRANT_DEFAULT_PROVIDER=libvirt
-
-# FZF
-[ -f /usr/share/fzf/shell/key-bindings.zsh ] && source /usr/share/fzf/shell/key-bindings.zsh
 
 if [ -f `which powerline-daemon` ]; then
   powerline-daemon -q
