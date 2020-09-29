@@ -1,4 +1,4 @@
-""""" Plugins
+"""""" Plugins
 set nocompatible
 filetype off
 
